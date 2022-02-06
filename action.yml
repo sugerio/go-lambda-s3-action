@@ -1,0 +1,33 @@
+name: 'Github Release Action'
+author: 'Suger Inc'
+branding:
+  icon: 'git-branch'
+  color: 'gray-dark'
+description: 'Publish Github releases from an action'
+
+env:
+  AWS_ACCESS_KEY_ID:
+    description: "Amazon access key id"
+    required: true
+  AWS_SECRET_ACCESS_KEY:
+    description: "Amazon secret access key"
+    required: true
+  AWS_DEFAULT_REGION:
+    description: "Bucket region. (Ex: us-east-1)"
+    required: true
+  AWS_BUCKET_NAME:
+    description: "Aws s3 artifact bucket name"
+    required: true
+  AWS_BUCKET_KEY_PREFIX:
+    description: "The prefix of bucket key to store object"
+    required: true
+  GO_BUILD_TARGET:
+    description: "The target of go to build"
+    required: true
+  RELEASE_TAG:
+    description: "The git tag of Github release to upload to s3"
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
