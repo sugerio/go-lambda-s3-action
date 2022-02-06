@@ -17,3 +17,7 @@ S3_LATEST_ZIP=s3://$AWS_BUCKET_NAME/$AWS_BUCKET_KEY_PREFIX/$LATEST_ZIP
 aws --region $AWS_DEFAULT_REGION s3 cp ../artifacts/$RELEASE_ZIP $S3_RELEASE_ZIP --no-progress
 aws --region $AWS_DEFAULT_REGION s3 cp $S3_RELEASE_ZIP $S3_LATEST_ZIP --no-progress
 echo "Successfully uploaded zip to $S3_RELEASE_ZIP and $S3_LATEST_ZIP"
+
+cd ../../
+rm -rf bin/
+echo "Successfully remove the bin folder"
