@@ -23,7 +23,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_DEFAULT_REGION: us-west-2
-        AWS_BUCKET_NAME: suger-artifact-dev
+        AWS_BUCKET_NAME: s3-bucket-name
         AWS_BUCKET_KEY_PREFIX: workload/marketplace-service
         GO_BUILD_TARGET: cmd/server
         RELEASE_TAG: v1.1.0
