@@ -1,9 +1,14 @@
-FROM ubuntu:22.04
+FROM debian:11.2
+LABEL "repository"="https://github.com/sugerio/go-lambda-s3-action"
+LABEL "maintainer"="Suger Inc"
 
-# install packages
-RUN apt-get update && \ 
-    apt-get install zip -y && \
-    apt-get install awscli -y 
+RUN apt update \
+	&& apt -y upgrade \
+    && apt install -y zip \
+    && apt install -y awscli \
+    && apt autoremove \
+	&& apt autoclean \
+	&& apt clean
 
 ADD entrypoint.sh /entrypoint.sh
 
