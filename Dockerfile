@@ -1,4 +1,4 @@
-FROM debian:11.2
+FROM golang:1.17
 LABEL "repository"="https://github.com/sugerio/go-lambda-s3-action"
 LABEL "maintainer"="Suger Inc"
 
