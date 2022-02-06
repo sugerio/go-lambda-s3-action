@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 # install packages
 RUN apt-get update && \ 
-    apt-get install zip && \
+    apt-get install zip -y && \
     apt-get install awscli -y 
 
 ADD entrypoint.sh /entrypoint.sh
