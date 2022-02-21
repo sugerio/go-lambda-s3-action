@@ -23,7 +23,7 @@ if [ ! -z "$LAMBDA_FUNCTION_NAME" ]
 then
     echo "Update lambda function" $LAMBDA_FUNCTION_NAME "from s3 bucket"
     aws --region $AWS_DEFAULT_REGION lambda update-function-code --function-name $LAMBDA_FUNCTION_NAME \
-    --s3-bucket $AWS_BUCKET_NAME --s3-key $AWS_BUCKET_KEY_PREFIX/$LATEST_ZIP --publish true
+    --s3-bucket $AWS_BUCKET_NAME --s3-key $AWS_BUCKET_KEY_PREFIX/$LATEST_ZIP --publish
     echo "Successfully updated lambda function" $LAMBDA_FUNCTION_NAME "from s3 bucket"
 fi
 
