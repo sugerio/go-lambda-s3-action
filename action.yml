@@ -27,6 +27,10 @@ env:
   RELEASE_TAG:
     description: "The git tag of Github release to upload to s3"
     required: true
+  LAMBDA_FUNCTION_NAME:
+    description: "The name of lambda function to update from s3 bucket. If empty, then no update"
+    required: true
+    default: ""
 
 runs:
   using: 'docker'

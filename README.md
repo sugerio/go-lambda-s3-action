@@ -27,5 +27,6 @@ jobs:
         AWS_BUCKET_KEY_PREFIX: workload/marketplace-service
         GO_BUILD_TARGET: cmd/server
         RELEASE_TAG: v1.1.0
+        LAMBDA_FUNCTION_NAME: lambda-function-name
 
 ```
