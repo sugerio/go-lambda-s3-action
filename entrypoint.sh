@@ -19,7 +19,8 @@ aws --region $AWS_DEFAULT_REGION s3 cp $S3_RELEASE_ZIP $S3_LATEST_ZIP --no-progr
 echo "Successfully uploaded zip to $S3_RELEASE_ZIP and $S3_LATEST_ZIP"
 
 # if the LAMBDA_FUNCTION_NAME is not empty
-if [ ! -z "$LAMBDA_FUNCTION_NAME" ] then
+if [ ! -z "$LAMBDA_FUNCTION_NAME" ]
+then
     echo "Update lambda function" $LAMBDA_FUNCTION_NAME "from s3 bucket"
     aws --region $AWS_DEFAULT_REGION lambda update-function-code --function-name $LAMBDA_FUNCTION_NAME \
     --s3-bucket $AWS_BUCKET_NAME --s3-key $AWS_BUCKET_KEY_PREFIX/$LATEST_ZIP --publish true
