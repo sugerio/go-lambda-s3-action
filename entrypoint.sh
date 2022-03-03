@@ -2,8 +2,8 @@
 
 echo "Build go from target:" $GO_BUILD_TARGET
 mkdir -p bin/output bin/artifacts
-git config --global --add url."git@github.com:".insteadOf "https://github.com/"
-export GOPRIVATE=github.com/sugerio/*
+# git config --global --add url."https://$GH_PAT@github.com:".insteadOf "https://github.com/"
+# export GOPRIVATE=github.com/sugerio/*
 GOOS=linux go build -o bin/output/ $GO_BUILD_TARGET
 
 RELEASE_ZIP=$RELEASE_TAG.zip
