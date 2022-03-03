@@ -1,11 +1,12 @@
 #!/bin/bash
 
-echo "Build go from target:" $GO_BUILD_TARGET
-mkdir -p bin/output bin/artifacts
+# echo "Build go from target:" $GO_BUILD_TARGET
+# mkdir -p bin/output 
 # git config --global --add url."https://$GH_PAT@github.com:".insteadOf "https://github.com/"
 # export GOPRIVATE=github.com/sugerio/*
-GOOS=linux go build -o bin/output/ $GO_BUILD_TARGET
+# GOOS=linux go build -o bin/output/ $GO_BUILD_TARGET
 
+mkdir -p bin/artifacts
 RELEASE_ZIP=$RELEASE_TAG.zip
 LATEST_ZIP=latest.zip
 echo "Packaging lambda zip to:" $RELEASE_ZIP $LATEST_ZIP
