@@ -21,8 +21,8 @@ env:
   AWS_BUCKET_KEY_PREFIX:
     description: "The prefix of bucket key to store object"
     required: true
-  GO_BUILD_TARGET:
-    description: "The target of go to build"
+  BINARY_DIRECTORY:
+    description: "The directory of built go binary for lambda function"
     required: true
   RELEASE_TAG:
     description: "The git tag of Github release to upload to s3"

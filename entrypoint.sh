@@ -6,18 +6,18 @@
 # export GOPRIVATE=github.com/sugerio/*
 # GOOS=linux go build -o bin/output/ $GO_BUILD_TARGET
 
-mkdir -p bin/artifacts
+ARTIFACTS_DIRECTORY=bin/zip_artifacts
+mkdir -p $ARTIFACTS_DIRECTORY
 RELEASE_ZIP=$RELEASE_TAG.zip
 LATEST_ZIP=latest.zip
-echo "Packaging lambda zip to:" $RELEASE_ZIP $LATEST_ZIP
-cd bin/output
-zip ../artifacts/$RELEASE_ZIP *
+echo "Packaging lambda zip to:" $ARTIFACTS_DIRECTORY/$RELEASE_ZIP $ARTIFACTS_DIRECTORY/$LATEST_ZIP
+zip bin/artifacts/$RELEASE_ZIP $BINARY_DIRECTORY/*
 echo "Successfully created $RELEASE_ZIP"
 
 echo "Upload zip file to bucket" $AWS_BUCKET_NAME 
 S3_RELEASE_ZIP=s3://$AWS_BUCKET_NAME/$AWS_BUCKET_KEY_PREFIX/$RELEASE_ZIP
 S3_LATEST_ZIP=s3://$AWS_BUCKET_NAME/$AWS_BUCKET_KEY_PREFIX/$LATEST_ZIP
-aws --region $AWS_DEFAULT_REGION s3 cp ../artifacts/$RELEASE_ZIP $S3_RELEASE_ZIP --no-progress
+aws --region $AWS_DEFAULT_REGION s3 cp $ARTIFACTS_DIRECTORY/$RELEASE_ZIP $S3_RELEASE_ZIP --no-progress
 aws --region $AWS_DEFAULT_REGION s3 cp $S3_RELEASE_ZIP $S3_LATEST_ZIP --no-progress
 echo "Successfully uploaded zip to $S3_RELEASE_ZIP and $S3_LATEST_ZIP"
 
@@ -30,6 +30,6 @@ then
     echo "Successfully updated lambda function" $LAMBDA_FUNCTION_NAME "from s3 bucket"
 fi
 
-cd ../../
-rm -rf bin/
+rm -rf $BINARY_DIRECTORY/
+rm -rf $ARTIFACTS_DIRECTORY/
 echo "Successfully removed the bin folder"

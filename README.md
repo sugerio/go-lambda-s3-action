@@ -25,7 +25,7 @@ jobs:
         AWS_DEFAULT_REGION: us-west-2
         AWS_BUCKET_NAME: s3-bucket-name
         AWS_BUCKET_KEY_PREFIX: workload/marketplace-service
-        GO_BUILD_TARGET: cmd/server
+        BINARY_DIRECTORY: bin/marketplace-service
         RELEASE_TAG: v1.1.0
         LAMBDA_FUNCTION_NAME: lambda-function-name
 
